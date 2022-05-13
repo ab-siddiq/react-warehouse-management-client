@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 
 const ProductDetails = ({stock}) =>{
-    const {_id, stockDate, productPhotoUrl, productSupplier, productName, productCategory, productQuantity, productUnitPrice, productTotalPrice} = stock
+    const {_id, stockDate, productPhotoUrl,productDescription, productSupplier, productName, productCategory, productQuantity, productUnitPrice, productTotalPrice} = stock
 
     return(
         
@@ -22,8 +22,7 @@ const ProductDetails = ({stock}) =>{
                 <Card.Body>
                     <Card.Title>{productName}</Card.Title>
                     <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    {  productDescription || 'Some quick example text to build on the card title and make up the bulk of                    the cards content.'}
                     </Card.Text>
                     <Card.Text>
                         Price: &#2547; {productUnitPrice}

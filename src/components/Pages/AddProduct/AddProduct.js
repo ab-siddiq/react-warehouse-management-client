@@ -6,6 +6,7 @@ const AddProduct = () => {
 const stockDateRef = useRef('');
   const photoUrlRef = useRef('');
   const supplierRef = useRef('');
+  const productDescriptionRef = useRef('');
   const productCategoryRef = useRef('');
   const productNameRef = useRef('');
   const productQuantityRef = useRef('');
@@ -19,13 +20,14 @@ const stockDateRef = useRef('');
     e.preventDefault();
     const stockDate = stockDateRef.current.value;
     const productPhotoUrl = photoUrlRef.current.value;
+    const productDescription = productDescriptionRef.current.value;
     const productSupplier = supplierRef.current.value;
     const productName = productNameRef.current.value;
     const productCategory = productCategoryRef.current.value;
     const productQuantity = productQuantityRef.current.value;
     const productUnitPrice = productUnitPriceRef.current.value;
     const productTotalPrice = productTotalPriceRef.current.value;
-    const stock = {stockDate,productPhotoUrl,productSupplier,productName,productCategory,productQuantity,productUnitPrice,productTotalPrice}
+    const stock = {stockDate,productPhotoUrl,productDescription,productSupplier,productName,productCategory,productQuantity,productUnitPrice,productTotalPrice}
 
     fetch('http://localhost:5000/stock',{
       method: "POST",
@@ -54,8 +56,15 @@ const stockDateRef = useRef('');
             <Form.Control ref={photoUrlRef} type="text" placeholder="Photo Url" />
           </Form.Group>
           </Col>
-          
       
+        </Row>
+        <Row>
+          <Col>
+          <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Product Description</Form.Label>
+            <Form.Control ref={productDescriptionRef} as="textarea" rows={3} placeholder="Product Description" />
+          </Form.Group>
+          </Col>
         </Row>
         <Row>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
