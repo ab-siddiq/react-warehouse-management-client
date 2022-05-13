@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useResolvedPath } from 'react-router-dom';
 import ProductDetails from './ProductDetails/ProductDetails';
 import { Col, Row } from 'react-bootstrap';
+import useStocks from '../../../hooks/useStocks';
 
 const Home = () => {
-    const [stocks, setStocks] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/stocks')
-        .then(res=>res.json())
-        .then(data=>setStocks(data))
-    },[])
+   
+    const [stocks,setStocks] = useStocks();
+    
     return (
         <div className='container'>
 
