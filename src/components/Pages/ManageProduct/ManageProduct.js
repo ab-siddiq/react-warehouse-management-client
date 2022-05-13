@@ -8,7 +8,18 @@ const ManageProduct = () => {
     const [stocks,setStocks] = useStocks();
 
     const handleDeleteStock = id =>{
-        console.log(id);
+
+        const url = `http://localhost:5000/stock/${id}`;
+        fetch(url,{
+            method: 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount > 0){
+                const remaining = stocks.filter(stock=>stock._id !== id);
+                setStocks(remaining);
+            }
+        })
     }
     const handleUpdateStock = id =>{
         console.log(id);
