@@ -16,7 +16,7 @@ const stockDateRef = useRef('');
   const productCategoryList =[{id: 1, name:'injection'},{id: 2, name:'tablet'},{id: 3, name:'inheler'},{id: 4, name:'cirap'}];
   const productNameList = [{id: 1, name:'Abacavir'},{id: 2, name:'Acetazolamide'},{id: 3, name:'Aciclovir'},{id: 4, name:'Ampicillin'}];
 
-  const handleSubmit = e =>{
+  const handleAddStock = e =>{
     e.preventDefault();
     const stockDate = stockDateRef.current.value;
     const productPhotoUrl = photoUrlRef.current.value;
@@ -42,7 +42,7 @@ const stockDateRef = useRef('');
   return (
     <div className="container mt-5">
       
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleAddStock}>
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">

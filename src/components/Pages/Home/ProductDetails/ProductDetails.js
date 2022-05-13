@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const ProductDetails = ({stock}) =>{
     const {_id, stockDate, productPhotoUrl,productDescription, productSupplier, productName, productCategory, productQuantity, productUnitPrice, productTotalPrice} = stock

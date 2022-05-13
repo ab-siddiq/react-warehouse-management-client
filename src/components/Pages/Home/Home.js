@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useResolvedPath } from 'react-router-dom';
+
+
 import ProductDetails from './ProductDetails/ProductDetails';
 import { Col, Row } from 'react-bootstrap';
 import useStocks from '../../../hooks/useStocks';
