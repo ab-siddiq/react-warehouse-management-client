@@ -1,3 +1,5 @@
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React  from "react";
 import { Table } from "react-bootstrap";
 import useStocks from "../../../hooks/useStocks";
@@ -45,7 +47,7 @@ const ManageProduct = () => {
                 </tr>
             </thead>
             <tbody>
-                {stocks.map(stock=><tr>
+                {stocks.map(stock=><tr key={stock._id}>
 
                             <td>{stock._id}</td>
                             <td>{stock.stockDate}</td>
@@ -56,9 +58,9 @@ const ManageProduct = () => {
                             <td>{stock.productQuantity}</td>
                             <td>{stock.productUnitPrice}</td>
                             <td>{stock.productTotalPrice}</td>
-                            <td>
-                            <button onClick={()=>{handleUpdateStock(stock._id)}}>update</button>
-                            <button onClick={()=>{handleDeleteStock(stock._id)}}>delete</button>
+                            <td className="d-flex justify-content-around align-items-end">
+                            <a className="text-green" onClick={()=>{handleUpdateStock(stock._id)}}><FontAwesomeIcon icon={faPencil} /></a>
+                            <a className="text-danger" onClick={()=>{handleDeleteStock(stock._id)}}><FontAwesomeIcon icon={faTrashCan} /></a>
                     </td>
                         </tr>)}
                     

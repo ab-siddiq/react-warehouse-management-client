@@ -12,9 +12,9 @@ const stockDateRef = useRef('');
   const productQuantityRef = useRef('');
   const productUnitPriceRef = useRef('');
   const productTotalPriceRef = useRef('');
-  const productSupplierList =[{id: 1, name: 'square'},{id: 2, name:'acme'},{id: 3, name:'incepta'},{id: 3, name:'beximco'},{id: 4, name:'aci'}];
-  const productCategoryList =[{id: 11, name:'injection'},{id: 22, name:'tablet'},{id: 33, name:'inheler'},{id: 44, name:'cirap'}];
-  const productNameList = [{id: 111, name:'Abacavir'},{id: 222, name:'Acetazolamide'},{id: 333, name:'Aciclovir'},{id: 444, name:'Ampicillin'}];
+  const productSupplierList =[{id: 1, name: 'square'},{id: 2, name:'acme'},{id: 3, name:'incepta'},{id: 4, name:'beximco'},{id: 5, name:'aci'}];
+  const productCategoryList =[{id: 1, name:'injection'},{id: 2, name:'tablet'},{id: 3, name:'inheler'},{id: 4, name:'cirap'}];
+  const productNameList = [{id: 1, name:'Abacavir'},{id: 2, name:'Acetazolamide'},{id: 3, name:'Aciclovir'},{id: 4, name:'Ampicillin'}];
 
   const handleSubmit = e =>{
     e.preventDefault();
@@ -75,7 +75,7 @@ const stockDateRef = useRef('');
             </Form.Select>
          </Form.Group>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
-            <Form.Label>productCategoryRef</Form.Label>
+            <Form.Label>Product Category</Form.Label>
             <Form.Select ref={productCategoryRef} defaultValue="Choose...">
               <option>Choose Product Category</option>
               {productCategoryList.map(category=><option key={category.id}>{category.name}</option>)}

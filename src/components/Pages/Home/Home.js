@@ -14,7 +14,7 @@ const Home = () => {
             <Row className=''>
                 {
                     stocks.map(stock=>
-                        <Col className='g-3' lg={3}>
+                        <Col key={stock._id} className='g-3' lg={3}>
                             <ProductDetails key={stock._id} stock={stock}></ProductDetails>
                         </Col>
                     )
