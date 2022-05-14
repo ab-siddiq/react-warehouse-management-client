@@ -58,6 +58,12 @@ const UpdateStock = () => {
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Stock Id</Form.Label>
+              <Form.Control  type="text" value={stock._id} readOnly/>
+            </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Date</Form.Label>
               <Form.Control ref={stockDateRef} type="date" defaultValue={stock.stockDate} placeholder="Enter Name" />
             </Form.Group>

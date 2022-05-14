@@ -49,9 +49,9 @@ const ManageProduct = () => {
                 </tr>
             </thead>
             <tbody>
-                {stocks.map(stock=><tr key={stock._id}>
+                {stocks.map((stock,i)=><tr key={stock._id}>
 
-                            <td>{stock._id}</td>
+                            <td>{i+1}</td>
                             <td>{stock.stockDate}</td>
                             <td>{stock.productPhotoUrl}</td>
                             <td>{stock.productDescription}</td>
