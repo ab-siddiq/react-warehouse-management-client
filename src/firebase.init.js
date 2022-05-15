@@ -6,12 +6,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC8lj5ujT09LgiUPVeQyB73ncrzw6YIZlE",
-  authDomain: "react-express-diagnostic-equip.firebaseapp.com",
-  projectId: "react-express-diagnostic-equip",
-  storageBucket: "react-express-diagnostic-equip.appspot.com",
-  messagingSenderId: "451523169907",
-  appId: "1:451523169907:web:6d3ade0a37bbb0cfda2406"
+  apiKey: "AIzaSyCUEQEXZO9v3LLl-vGOYUjvDhRMVaSt1bw",
+  authDomain: "react-mongodb-diagnostic-equip.firebaseapp.com",
+  projectId: "react-mongodb-diagnostic-equip",
+  storageBucket: "react-mongodb-diagnostic-equip.appspot.com",
+  messagingSenderId: "475357891344",
+  appId: "1:475357891344:web:8a2988229783d4d8e33395"
 };
 
 // Initialize Firebase

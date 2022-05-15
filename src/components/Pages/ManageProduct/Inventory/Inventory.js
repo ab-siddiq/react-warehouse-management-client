@@ -8,6 +8,7 @@ const Inventory = () => {
   const { inventoryId } = useParams();
   const [stock, setStock] = useState({});
 //   const [newProductQuantity, setNewProductQuantity] = useState(1);
+console.log(stock)
   
   const productQuantityRef = useRef("");
     console.log(productQuantityRef)
@@ -43,9 +44,9 @@ const Inventory = () => {
     fetch(`http://localhost:5000/inventory/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStock(data));
-  }, []);
+  }, [inventoryId]);
   return (
-    <div className="my-5">
+    <div className="my-5 vh-100">
       <Row>
         <Col>
           <div className="container mt-5">

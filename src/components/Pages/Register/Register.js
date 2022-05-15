@@ -41,8 +41,8 @@ const Register = () => {
     sendEmailVerification();
   };
   return (
-    <div className="container my-5">
-      <Form onSubmit={handleRegister}>
+    <div className="container my-5 vh-100 d-flex justify-content-end">
+      <Form onSubmit={handleRegister} style={{width: '500px'}}>
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
@@ -58,6 +58,8 @@ const Register = () => {
                     </Form.Text> */}
             </Form.Group>
           </Col>
+          </Row>
+          <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicPhone">
               <Form.Label>Phone</Form.Label>

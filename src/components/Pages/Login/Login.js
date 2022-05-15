@@ -9,7 +9,7 @@ const Login = () => {
   const passwordRef = useRef("");
   const navigate = useNavigate("");
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
 
   const from = location.state?.from?.pathname || "/";

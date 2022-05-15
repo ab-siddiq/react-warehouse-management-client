@@ -4,7 +4,7 @@ import useStocks from "../../../hooks/useStocks";
 import Slider from "./Slider/Slider";
 
 const Home = () => {
-  const [stocks, setStocks] = useStocks();
+  const [stocks] = useStocks();
 
   return (
     <>
