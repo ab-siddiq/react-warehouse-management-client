@@ -42,10 +42,15 @@ const Register = () => {
   };
   return (
     <div className="container my-5 vh-100 d-flex justify-content-end">
-      <Form onSubmit={handleRegister} style={{width: '500px'}}>
+      <Form onSubmit={handleRegister} style={{width: '600px', border: '1px solid grey', borderRadius: '5px', padding: '20px 60px', height: '450px'}}>
+        <Row>
+            <Col className="d-flex justify-content-center">
+                <h2 className="mb-2">Please Register</h2>
+            </Col>
+        </Row>
         <Row>
           <Col>
-            <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Group  className="mb-3" controlId="formBasicName">
               <Form.Label>Your Name</Form.Label>
               <Form.Control
                 ref={nameRef}
@@ -116,7 +121,7 @@ const Register = () => {
 
         <Form.Group className="mb-3" controlId="">
           <p>
-            Already have an account? <Link to="/login">Please login.</Link>
+            Already registered? <Link to="/login">Please login.</Link>
           </p>
         </Form.Group>
        <div className="d-flex justify-content-end">

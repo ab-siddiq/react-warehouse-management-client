@@ -38,7 +38,8 @@ const Login = () => {
   }
   return (
     <div className="container my-5 vh-100 d-flex justify-content-end ">
-      <Form className="" style={{width: '400px', height: '400px', border: '1px solid grey', padding: '40px 60px', borderRadius: '5px'}} onSubmit={handleLoginSubmit}>
+      <Form className="" style={{width: '400px', height: '400px', border: '1px solid grey', padding: '20px 60px', borderRadius: '5px'}} onSubmit={handleLoginSubmit}>
+        <div className="d-flex justify-content-center"><h2 className="mb-3">Please Login</h2></div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
