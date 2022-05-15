@@ -67,7 +67,7 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
       <Form onSubmit={handleAddStock}>
         <Row>
           <Col>
@@ -166,9 +166,11 @@ const AddProduct = () => {
           </Col>
         </Row>
 
-        <Button variant="primary" type="submit">
-          Submit
+       <div className="d-grid ">
+       <Button variant="primary" type="submit">
+          Add Product
         </Button>
+       </div>
       </Form>
     </div>
   );

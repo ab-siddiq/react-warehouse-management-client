@@ -171,7 +171,7 @@ const Inventory = () => {
                   </Form.Group>
                 </Col>
               </Row>
-              <div className="d-flex justify-content-end">
+              <div className="d-grid">
                 <Button variant="primary" type="submit">
                   Delivered
                 </Button>

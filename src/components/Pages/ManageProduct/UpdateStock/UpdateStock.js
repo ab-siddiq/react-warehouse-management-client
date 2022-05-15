@@ -78,19 +78,19 @@ const UpdateStock = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
       {stock.stockDate}
       <Form onSubmit={handleUpdateStock}>
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Stock Id</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Stock Id</Form.Label>
               <Form.Control type="text" value={stock._id} readOnly />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Date</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Date</Form.Label>
               <Form.Control
                 ref={stockDateRef}
                 type="date"
@@ -101,7 +101,7 @@ const UpdateStock = () => {
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Photo Url</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Photo Url</Form.Label>
               <Form.Control
                 ref={photoUrlRef}
                 defaultValue={stock.productPhotoUrl}
@@ -114,7 +114,7 @@ const UpdateStock = () => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Product Description</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Product Description</Form.Label>
               <Form.Control
                 ref={productDescriptionRef}
                 defaultValue={stock.productDescription}
@@ -127,7 +127,7 @@ const UpdateStock = () => {
         </Row>
         <Row>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
-            <Form.Label>Choose Supplier</Form.Label>
+            <Form.Label className='ms-1 font-weight-bold'>Choose Supplier</Form.Label>
             <Form.Select ref={supplierRef} defaultValue={stock.productSupplier}>
               <option>Choose Supplier</option>
               {productSupplierList.map((sup) => (
@@ -136,7 +136,7 @@ const UpdateStock = () => {
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
-            <Form.Label>Product Category</Form.Label>
+            <Form.Label className='ms-1 font-weight-bold'>Product Category</Form.Label>
             <Form.Select
               ref={productCategoryRef}
               defaultValue={stock.productCategory}
@@ -148,11 +148,8 @@ const UpdateStock = () => {
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
-            <Form.Label>Product Name</Form.Label>
-            <Form.Select
-              ref={productNameRef}
-              defaultValue={stock.productName}
-            >
+            <Form.Label className='ms-1 font-weight-bold'>Product Name</Form.Label>
+            <Form.Select ref={productNameRef} defaultValue={stock.productName}>
               <option>Choose product</option>
               {productNameList.map((name) => (
                 <option key={name.id}>{name.name}</option>
@@ -163,7 +160,7 @@ const UpdateStock = () => {
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Product Quantity</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Product Quantity</Form.Label>
               <Form.Control
                 ref={productQuantityRef}
                 defaultValue={stock.productQuantity}
@@ -174,7 +171,7 @@ const UpdateStock = () => {
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Product Unit Price</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Product Unit Price</Form.Label>
               <Form.Control
                 ref={productUnitPriceRef}
                 defaultValue={stock.productUnitPrice}
@@ -185,7 +182,7 @@ const UpdateStock = () => {
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Product Total Price</Form.Label>
+              <Form.Label className='ms-1 font-weight-bold'>Product Total Price</Form.Label>
               <Form.Control
                 ref={productTotalPriceRef}
                 defaultValue={stock.productTotalPrice}
@@ -196,9 +193,11 @@ const UpdateStock = () => {
           </Col>
         </Row>
 
-        <Button variant="primary" type="submit">
-          Update
-        </Button>
+        <div className="d-grid">
+          <Button variant="primary" type="submit">
+            Update
+          </Button>
+        </div>
       </Form>
     </div>
   );
