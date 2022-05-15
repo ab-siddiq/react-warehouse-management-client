@@ -54,7 +54,7 @@ const AddProduct = () => {
       productTotalPrice,
     };
 
-    fetch("http://localhost:5000/stock", {
+    fetch("https://agile-dawn-21628.herokuapp.com/stock", {
       method: "POST",
       headers: {
         "content-type": "application/json",

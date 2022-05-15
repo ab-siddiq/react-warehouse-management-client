@@ -58,7 +58,7 @@ const UpdateStock = () => {
       productTotalPrice,
     };
 
-    fetch(`http://localhost:5000/stock/${stockId}`, {
+    fetch(`https://agile-dawn-21628.herokuapp.com/stock/${stockId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -72,10 +72,10 @@ const UpdateStock = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/stock/${stockId}`)
+    fetch(`https://agile-dawn-21628.herokuapp.com/stock/${stockId}`)
       .then((res) => res.json())
       .then((data) => setStock(data));
-  }, []);
+  }, [stockId]);
 
   return (
     <div className="container my-5">

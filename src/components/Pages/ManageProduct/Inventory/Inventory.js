@@ -1,34 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Col, Form, Row, Table } from "react-bootstrap";
+import { Button, Col, Form, Row, Spinner, Table } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import auth from "../../../../firebase.init";
 import useStocks from "../../../../hooks/useStocks";
 
 const Inventory = () => {
   const [stocks, setStocks] = useStocks();
   const { inventoryId } = useParams();
   const [stock, setStock] = useState({});
-//   const [newProductQuantity, setNewProductQuantity] = useState(1);
-console.log(stock)
-  
+  //   const [newProductQuantity, setNewProductQuantity] = useState(1);
+  const [user, loading] = useAuthState(auth);
   const productQuantityRef = useRef("");
-    console.log(productQuantityRef)
 
  
- 
+  console.log(stock);
+
+  console.log(productQuantityRef);
+
   const handleUpdateInventory = (e) => {
     e.preventDefault();
-   
+
     const productQuantity = productQuantityRef.current.value;
-    console.log(productQuantity)
-  
+    console.log(productQuantity);
+
     //  const newQuantity = productQuantity -1;
     //  setNewProductQuantity(newProductQuantity);
 
     const stock = {
-        productQuantity
+      productQuantity,
     };
 
-    fetch(`http://localhost:5000/inventory/${inventoryId}`, {
+    fetch(`https://agile-dawn-21628.herokuapp.com/inventory/${inventoryId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -41,10 +44,13 @@ console.log(stock)
       });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/inventory/${inventoryId}`)
+    fetch(`https://agile-dawn-21628.herokuapp.com/inventory/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStock(data));
   }, [inventoryId]);
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
   return (
     <div className="my-5 vh-100">
       <Row>
@@ -68,7 +74,7 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Date</Form.Label> */}
                     <Form.Control
-                    //   ref={stockDateRef}
+                      //   ref={stockDateRef}
                       type="date"
                       defaultValue={stock.stockDate}
                       readOnly
@@ -80,7 +86,7 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Photo Url</Form.Label> */}
                     <Form.Control
-                    //   ref={photoUrlRef}
+                      //   ref={photoUrlRef}
                       defaultValue={stock.productPhotoUrl}
                       type="text"
                       readOnly
@@ -94,7 +100,7 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Product Description</Form.Label> */}
                     <Form.Control
-                    //   ref={productDescriptionRef}
+                      //   ref={productDescriptionRef}
                       defaultValue={stock.productDescription}
                       as="textarea"
                       rows={3}
@@ -139,8 +145,8 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Product Quantity</Form.Label> */}
                     <Form.Control
-                    //   ref={productQuantityRef}
-                      value='2'
+                      //   ref={productQuantityRef}
+                      value="2"
                       type="text"
                       readOnly
                       placeholder="Product Quantity"
@@ -151,7 +157,7 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Product Unit Price</Form.Label> */}
                     <Form.Control
-                    //   ref={productUnitPriceRef}
+                      //   ref={productUnitPriceRef}
                       defaultValue={stock.productUnitPrice}
                       type="text"
                       readOnly
@@ -163,7 +169,7 @@ console.log(stock)
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Product Total Price</Form.Label> */}
                     <Form.Control
-                    //   ref={productTotalPriceRef}
+                      //   ref={productTotalPriceRef}
                       defaultValue={stock.productTotalPrice}
                       type="text"
                       readOnly

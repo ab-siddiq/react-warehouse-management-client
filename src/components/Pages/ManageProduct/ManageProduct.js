@@ -10,7 +10,7 @@ const ManageProduct = () => {
   const navigate = useNavigate();
 
   const handleDeleteStock = (id) => {
-    const url = `http://localhost:5000/stock/${id}`;
+    const url = `https://agile-dawn-21628.herokuapp.com/stock/${id}`;
     fetch(url, {
       method: "DELETE",
     })

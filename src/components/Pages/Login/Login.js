@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
@@ -9,8 +9,12 @@ const Login = () => {
   const passwordRef = useRef("");
   const navigate = useNavigate("");
   const location = useLocation();
-  const [signInWithEmailAndPassword, user, error] =
+  const [signInWithEmailAndPassword, user,loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+    if(loading){
+      return <Spinner></Spinner>
+    }
 
   const from = location.state?.from?.pathname || "/";
   if (user) {
