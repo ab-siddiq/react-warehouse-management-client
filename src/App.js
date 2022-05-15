@@ -6,6 +6,9 @@ import AddProduct from './components/Pages/AddProduct/AddProduct';
 import Home from './components/Pages/Home/Home';
 import ManageProduct from './components/Pages/ManageProduct/ManageProduct';
 import UpdateStock from './components/Pages/ManageProduct/UpdateStock/UpdateStock';
+import Inventory from './components/Pages/ManageProduct/Inventory/Inventory';
+import Blogs from './components/Pages/Blogs/Blogs';
+import NotFound from './components/Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -15,7 +18,10 @@ function App() {
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/addProduct' element={<AddProduct></AddProduct>}></Route>
       <Route path='/manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+      <Route path='/inventory/:inventoryId' element={<Inventory></Inventory>}></Route>
       <Route path='/update/stock/:stockId' element={<UpdateStock></UpdateStock>}></Route>
+      <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+      <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
     <Footer></Footer>
     </div>

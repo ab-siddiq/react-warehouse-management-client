@@ -1,22 +1,17 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = ({stock}) =>{
-    const {_id, stockDate, productPhotoUrl,productDescription, productSupplier, productName, productCategory, productQuantity, productUnitPrice, productTotalPrice} = stock
+    const {_id, stockDate, productPhotoUrl,productDescription, productSupplier, productName, productCategory, productQuantity, productUnitPrice, productTotalPrice} = stock;
+    const navigate = useNavigate();
 
+    const handleInventory = id => {
+        navigate(`/inventory/${id}`);
+    }
     return(
-        
-        
-            <div>
-                {/* <p>{_id}</p>
-            <p>{stockDate}</p>
-            <p>{productPhotoUrl}</p>
-            <p>{productSupplier}</p>
-            <p></p>
-            <p>{productCategory}</p>
-            <p>{productQuantity}</p>
-            <p>{productUnitPrice}</p>
-            <p>{productTotalPrice}</p> */}
+
+        <div>
             <Card >
                 <Card.Img variant="top" style={{height:'200px', width: 'auto'}} src={productPhotoUrl} />
                 <Card.Body>
@@ -24,13 +19,22 @@ const ProductDetails = ({stock}) =>{
                     <Card.Text>
                     {  productDescription || 'Some quick example text to build on the card title and make up the bulk of                    the cards content.'}
                     </Card.Text>
-                    <Card.Text>
-                        Price: &#2547; {productUnitPrice}
-                    </Card.Text>
-                    <Button variant="primary">Buy</Button>
+                    {/* <Card.Text > */}
+                    <div className='d-flex justify-content-between'>
+                        <p>Price: &#2547; {productUnitPrice}</p> 
+                        <p>Available: {productQuantity} Unit</p> 
+                    </div>
+                    {/* </Card.Text> */}
+                    <div className='d-flex justify-content-start m-1'>
+                        <p className="bg-primary m-1 px-2 rounded">{productCategory}</p>
+                        <p className="bg-primary m-1 px-2 rounded">{productSupplier}</p>
+                    </div>
+                    <div className="d-flex justify-content-end">
+                    <Button onClick={()=>{handleInventory(_id)}} variant="primary">Update</Button>
+                    </div>
                 </Card.Body>
             </Card>
-            </div>
+        </div>
             
         
     );
