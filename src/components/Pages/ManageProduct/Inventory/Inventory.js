@@ -45,7 +45,7 @@ const Inventory = () => {
       .then((data) => setStock(data));
   }, []);
   return (
-    <div>
+    <div className="my-5">
       <Row>
         <Col>
           <div className="container mt-5">
