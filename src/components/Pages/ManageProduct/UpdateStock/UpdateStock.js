@@ -128,8 +128,8 @@ const UpdateStock = () => {
         <Row>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
             <Form.Label className='ms-1 font-weight-bold'>Choose Supplier</Form.Label>
-            <Form.Select ref={supplierRef} defaultValue={stock.productSupplier}>
-              <option>Choose Supplier</option>
+            <Form.Select ref={supplierRef} value={stock.productSupplier}>
+             
               {productSupplierList.map((sup) => (
                 <option key={sup.id}>{sup.name}</option>
               ))}
@@ -139,9 +139,9 @@ const UpdateStock = () => {
             <Form.Label className='ms-1 font-weight-bold'>Product Category</Form.Label>
             <Form.Select
               ref={productCategoryRef}
-              defaultValue={stock.productCategory}
+              value={stock.productCategory}
             >
-              <option>Choose Product Category</option>
+             
               {productCategoryList.map((category) => (
                 <option key={category.id}>{category.name}</option>
               ))}
@@ -149,8 +149,8 @@ const UpdateStock = () => {
           </Form.Group>
           <Form.Group className="mb-3" as={Col} controlId="formGridState">
             <Form.Label className='ms-1 font-weight-bold'>Product Name</Form.Label>
-            <Form.Select ref={productNameRef} defaultValue={stock.productName}>
-              <option>Choose product</option>
+            <Form.Select ref={productNameRef} value={stock.productName}>
+            
               {productNameList.map((name) => (
                 <option key={name.id}>{name.name}</option>
               ))}

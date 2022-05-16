@@ -9,42 +9,43 @@ const Inventory = () => {
   const [stocks, setStocks] = useStocks();
   const { inventoryId } = useParams();
   const [stock, setStock] = useState({});
-  //   const [newProductQuantity, setNewProductQuantity] = useState(1);
   const [user, loading] = useAuthState(auth);
   const productQuantityRef = useRef("");
 
- 
-  console.log(stock);
+  
 
-  console.log(productQuantityRef);
+  const handleQuantity = () => {
+
+  }
 
   const handleUpdateInventory = (e) => {
     e.preventDefault();
-
     const productQuantity = productQuantityRef.current.value;
-    console.log(productQuantity);
+    let newQuantity;
+    if (productQuantity > 0) {
+      newQuantity = parseInt(productQuantity) - 1;
+    }
 
-    //  const newQuantity = productQuantity -1;
-    //  setNewProductQuantity(newProductQuantity);
+    console.log(newQuantity)
 
-    const stock = {
-      productQuantity,
-    };
+      const stock = {
+        newQuantity,
+      };
 
-    fetch(`https://agile-dawn-21628.herokuapp.com/inventory/${inventoryId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(stock),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-      });
+      fetch(`https://agile-dawn-21628.herokuapp.com/inventory/${inventoryId}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(stock),
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          console.log(response);
+        });
   };
   useEffect(() => {
-    fetch(`https://agile-dawn-21628.herokuapp.com/inventory/${inventoryId}`)
+    fetch(`https://agile-dawn-21628.herokuapp.com/stock/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setStock(data));
   }, [inventoryId]);
@@ -145,8 +146,8 @@ const Inventory = () => {
                   <Form.Group className="mb-3" controlId="formBasicName">
                     {/* <Form.Label>Product Quantity</Form.Label> */}
                     <Form.Control
-                      //   ref={productQuantityRef}
-                      value="2"
+                      ref={productQuantityRef}
+                      value={stock.productQuantity}
                       type="text"
                       readOnly
                       placeholder="Product Quantity"
@@ -179,7 +180,7 @@ const Inventory = () => {
                 </Col>
               </Row>
               <div className="d-grid">
-                <Button variant="primary" type="submit">
+                <Button onClick={handleQuantity} variant="primary" type="submit">
                   Delivered
                 </Button>
               </div>

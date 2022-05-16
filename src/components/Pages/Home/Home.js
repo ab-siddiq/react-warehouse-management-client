@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Slider></Slider>
 
-      <div className="container mt-5">
+      <div className="container my-5">
         <Row className="">
           {stocks.slice(0,6).map((stock) => (
             <Col key={stock._id} className="g-3" lg={4}>
