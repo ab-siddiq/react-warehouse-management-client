@@ -1,6 +1,6 @@
 # Diagnostic equipment management system
 
-(Live)[]
+[Live](https://react-mongodb-diagnostic-equip.web.app/)
 
 # What is used in this project?
 
